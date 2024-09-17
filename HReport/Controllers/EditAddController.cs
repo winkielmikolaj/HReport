@@ -1,7 +1,6 @@
 ﻿using HReport.Data;
 using HReport.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace HReport.Controllers
 {
@@ -20,27 +19,29 @@ namespace HReport.Controllers
         }
 
         [HttpPost]
-        public IActionResult ToggleCompletion(int? id, bool IsCompleted)
+        public IActionResult ToggleCompletion(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
             var complaint = _db.InfoReports.Find(id);
-            //DO NAPRAWY!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            if (IsCompleted == true)
+            if (complaint == null)
             {
-                IsCompleted = false;
-                complaint.IsChecked = IsCompleted;
-                _db.SaveChanges();
-            }
-            else
-            {
-                IsCompleted = true;
-                complaint.IsChecked = IsCompleted;
-                _db.SaveChanges();
+                return NotFound();
             }
 
+            // Odwracanie obecnego stanu IsChecked w bazie danych
+            complaint.IsChecked = !complaint.IsChecked;
 
-            // Przekierowanie z powrotem do listy
-            return RedirectToAction("Index");
+            // Zapisanie zmian w bazie danych
+            _db.SaveChanges();
+
+            return RedirectToAction("Index"); // lub inna akcja, do której chcesz przekierować po zapisaniu zmian
         }
+
+
 
         public IActionResult Index()
         {
