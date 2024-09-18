@@ -18,6 +18,61 @@ namespace HReport.Controllers
             _db = db;
         }
 
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            InfoReport? entry = _db.InfoReports.Find(id);
+
+            return View(_db.InfoReports.Find(id));
+        }
+
+
+        [HttpPost]
+        public IActionResult Edit(InfoReport obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                obj.Date = DateTime.UtcNow;
+
+                _db.InfoReports.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            return View(obj);
+
+
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            InfoReport entry = _db.InfoReports.Find(id);
+            _db.InfoReports.Remove(entry);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult AddComplaints()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddComplaints(InfoReport entry)
+        {
+
+            entry.Date = DateTime.UtcNow;
+
+            _db.InfoReports.Add(entry);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
+
+        }
+
         [HttpPost]
         public IActionResult ToggleCompletion(int? id)
         {
@@ -53,12 +108,6 @@ namespace HReport.Controllers
 
         public IActionResult Func()
         {
-            return View();
-        }
-
-        public IActionResult AddComplaints()
-        {
-
             return View();
         }
 
