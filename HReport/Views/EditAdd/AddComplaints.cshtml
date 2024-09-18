@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <form asp-action="AddComplaints" method="post">
                         @*validation*@
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3 test">
                             <label asp-for="Complaint" class="form-label">Complaint</label>
                             <input asp-for="Complaint" class="form-control" placeholder="Enter a title" />
                             <span asp-validation-for="Complaint" class="text-danger"></span>
