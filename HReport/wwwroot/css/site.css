@@ -88,3 +88,8 @@ body {
     .kasjan{
         margin-bottom: 120px;
     }
+
+.thick-strikethrough {
+    text-decoration: line-through;
+    text-decoration-thickness: 3px; /* Ustawia gruboœæ linii */
+}

@@ -12,7 +12,7 @@ ViewData["Title"] = "Complaints";
             </a>
         </div>
         <div class="col-6 text-end">
-            <h2>Complaints to HR</h2>
+            <h2 class="text-white text-uppercase">Complaints to HR</h2>
         </div>
     </div>
 </div>
@@ -22,20 +22,21 @@ ViewData["Title"] = "Complaints";
         <thead>
         </thead>
         <tr>
-            <th>Complaint</th>
-            <th>Description</th>
-            <th>Date</th>
-            <th>IsChecked</th>
-            <th>Actions</th>
+            <th class="text-white">Complaint</th>
+            <th class="text-white">Description</th>
+            <th class="text-white">Date</th>
+            <th class="text-white">IsChecked</th>
+            <th class="text-white">Actions</th>
         </tr>
         <tbody>
         @foreach (var entry in Model)
         {
-        <tr class="@(entry.IsChecked ? "text-decoration-line-through" : "")">
-            <td>@entry.Complaint</td>
-            <td>@entry.Description</td>
-            <td>@entry.Date</td>
-            <td>
+                <tr class="@(entry.IsChecked ? "thick-strikethrough" : "")">
+
+                    <td class="text-white">@entry.Complaint</td>
+                    <td class="text-white">@entry.Description</td>
+                    <td class="text-white">@entry.Date</td>
+                    <td class="text-white">
                 @using (Html.BeginForm("ToggleCompletion", "EditAdd", new { id = @entry.Id }, FormMethod.Post))
                 {
                 <input type="checkbox"
