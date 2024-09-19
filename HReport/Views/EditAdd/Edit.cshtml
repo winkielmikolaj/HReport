@@ -10,31 +10,31 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
+            <div class="card bg-dark text-light">
+                <div class="card-header bg-black text-white">
                     <h2>Add a Report</h2>
                 </div>
                 <div class="card-body">
                     <form asp-action="Edit" method="post">
                         @*validation*@
                         <div class="form-group mb-3">
-                            <label asp-for="Complaint" class="form-label">Complaint</label>
-                            <input asp-for="Complaint" class="form-control" placeholder="Enter a title" />
+                            <label asp-for="Complaint" class="form-label text-light">Complaint</label>
+                            <input asp-for="Complaint" class="form-control bg-dark text-light" placeholder="Enter a title" />
                             <span asp-validation-for="Complaint" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
-                            <label asp-for="Description" class="form-label">Content</label>
-                            <input asp-for="Description" row="5" class="form-control" placeholder="Enter what u did" />
+                            <label asp-for="Description" class="form-label text-light">Content</label>
+                            <textarea asp-for="Description" row="5" class="form-control bg-dark text-light" placeholder="Enter what you did"></textarea>
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
-                            <label asp-for="Date" class="form-label">Date</label>
-                            <input asp-for="Date" class="form-control" type="date" placeholder="Enter a date" />
+                            <label asp-for="Date" class="form-label text-light">Date</label>
+                            <input asp-for="Date" class="form-control bg-dark text-light" type="date" />
                             <span asp-validation-for="Date" class="text-danger"></span>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <button type="submit" class="btn btn-primary">Create</button>
-                            <a asp-controller="EditAdd" asp-action="Edit" class="btn btn-danger">Cancel</a>
+                            <button type="submit" class="btn btn-secondary">Create</button>
+                            <a asp-controller="EditAdd" asp-action="Edit" class="btn btn-dark">Cancel</a>
                         </div>
                     </form>
                 </div>
@@ -42,6 +42,7 @@
         </div>
     </div>
 </div>
+
 
 @*walidacja po stronie klienta*@
 

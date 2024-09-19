@@ -298,6 +298,7 @@ body {
     }
 
 .thick-strikethrough {
+    background-color: darkgreen;
     text-decoration: line-through;
     text-decoration-thickness: 3px; /* Ustawia gruboœæ linii */
 }
