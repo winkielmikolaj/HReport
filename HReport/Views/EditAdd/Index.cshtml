@@ -8,11 +8,11 @@ ViewData["Title"] = "Complaints";
     <div class="row pt-4">
         <div class="col-6">
             <a class="btn btn-secondary" asp-controller="EditAdd" asp-action="AddComplaints">
-                Create new Complaint
+                Create new Report
             </a>
         </div>
         <div class="col-6 text-end">
-            <h2 class="text-white text-uppercase">Complaints to HR</h2>
+            <h2 class="text-white text-uppercase">Reports to HR</h2>
         </div>
     </div>
 </div>
@@ -22,11 +22,11 @@ ViewData["Title"] = "Complaints";
         <thead>
         </thead>
         <tr>
-            <th class="text-white">Complaint</th>
+            <th class="text-white">Report</th>
             <th class="text-white">Description</th>
             <th class="text-white">Date</th>
             <th class="text-white">IsChecked</th>
-            <th class="text-white">Actions</th>
+            <th class="text-white"></th>
         </tr>
         <tbody>
         @foreach (var entry in Model)

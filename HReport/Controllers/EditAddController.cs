@@ -17,6 +17,20 @@ namespace HReport.Controllers
         {
             _db = db;
         }
+        [HttpPost]
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Search(string title)
+        {
+            var results = _db.InfoReports.Where(a => a.Complaint.Contains(title)).ToList();
+
+            return View(results);
+        }
+     
 
 
         [HttpGet]
